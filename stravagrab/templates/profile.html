@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <nav>
+            {% if not user.is_authenticated %}
+                <a href="{% url "social:begin" "facebook" %}">Facebook Login</a>
+            {% else %}
+                Hi {{ user.username }}!
+            {% endif %}
+        </nav>
+
+
+
+
+<div>
+    <br><br>
+    <div>Hometown: {{ hometown.name }}</div>
+    <div>Full Name: {{ name }}</div>
+    <div>Favorite Teams: {% for team in favorite_teams %}{{ team.name }} {% endfor %}</div>
+</div>
+
+</body>
+</html>
