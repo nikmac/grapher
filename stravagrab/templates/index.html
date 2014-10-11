@@ -236,11 +236,11 @@
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-2">
 				<div class="thumbnail">
-                    <div id="Chart"></div>
+
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>place to put graph</p>
-						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+						<h3>Amazing Data</h3>
+						<div id="putgraphhere" style="height: 200px; width: 200px;"></div>
+						<div><a id="graph" class="btn btn-primary" role="button">Get Graph</a></div>
 					</div>
 				</div>
 			</div>
@@ -279,7 +279,22 @@
 
 	</div>
 </section>
+<script type="text/javascript">
 
+        $('#graph').on('click', function () {
+            $.ajax({
+                url: '/graph/',
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('#putgraphhere').html(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+</script>
 <!-- Fourth (Contact) section -->
 <section class="section" id="contact">
 	<div class="container">

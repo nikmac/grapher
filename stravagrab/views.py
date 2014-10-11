@@ -6,6 +6,9 @@ import facebook
 def index(request):
     return render(request, 'index.html')
 
+def graph(request):
+    return render(request, 'graph.html')
+
 @login_required
 def profile(request):
     user_social_auth = request.user.social_auth.filter(provider='facebook').first()
