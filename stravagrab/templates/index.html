@@ -4,28 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-
-	
 	<title>Graph my Run</title>
-	
 	<!-- Bootstrap itself -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="{% static 'css/magister.css' %}">
-
 	<!-- Fonts -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-
-
-
-
 </head>
-
-<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
 <body class="theme-invert">
-
 <nav class="mainmenu">
 	<div class="container">
 		<div class="dropdown">
@@ -33,45 +21,29 @@
 			<!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
 			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 				<li><a href="#head" class="active">Hello</a></li>
-				<li><a href="#about">Get Segments</a></li>
+				<li><a href="#about">Segments</a></li>
 				<li><a href="#themes">Graphs</a></li>
 				<li><a href="#contact">Get in touch</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-
-
 <!-- Main (Home) section -->
 <section class="section" id="head">
 	<div class="container">
-
 		<div class="row">
-			<div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">	
-
-				<!-- Site Title, your name, HELLO msg, etc. -->
+			<div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
 				<h1 class="title">Graph My Run</h1>
 				<h2 class="subtitle">The Site to See Your Progress</h2>
-
-				<!-- Short introductory (optional) -->
-				<h3 class="tagline">
-					Graph your Strava Segment Performance Over Time<br>
-
-				</h3>
-				
-				<!-- Nice place to describe your site in a sentence or two -->
+				<h3 class="tagline">Graph your Strava Segment Pace Over Time</h3>
 				<p><a href="https://www.strava.com/oauth/authorize" class="btn btn-default btn-lg">Get Strava Data Now</a></p>
-	
-			</div> <!-- /col -->
-		</div> <!-- /row -->
-	
+			</div>
+		</div>
 	</div>
 </section>
-
-<!-- Second (About) section -->
+<!-- Second (Segment) section -->
 <section class="section" id="about">
 	<div class="container">
-	
 		<h2 class="text-center title">Your Segments</h2>
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-2">    
@@ -80,15 +52,14 @@
             </div>
 			<div class="col-sm-4">
 				<h5><strong>More Space If needed<br></strong></h5>
-				<p></p>
+				<p>space</p>
                 <h5><strong>links for stuff<br></strong></h5>
 				<p><a href="#">Stuff</a> / <a href="#">More stuff</a> / <a href="#">Another</a> / <a href="#">Place</a></p>
 			</div>
 		</div>
 	</div>
 </section>
-
-<!-- Third (Works) section -->
+<!-- Third (Graphs) section -->
 <section class="section" id="themes">
 	<div class="container">
 
@@ -97,70 +68,79 @@
 			Perhaps the title of your segment<br>
 			and some info <a href="#">link</a>to another graph option
 		</p>
-
 		<div class="row">
-			<div class="col-sm-4 col-sm-offset-2">
+			<div class="col-sm-5 col-sm-offset-1">
 				<div class="thumbnail">
-
 					<div class="caption">
 						<h3>Amazing Data</h3>
-						<div id="putgraphhere" style="height: 200px; width: 200px;"></div>
-						<div><a id="graph" class="btn btn-primary" role="button">Get Graph</a></div>
+                        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Date</th>
+    <th class="tg-031e">Distance</th>
+    <th class="tg-031e">Moving Time</th>
+    <th class="tg-031e">Heart Rate</th>
+  </tr>
+  <tr>
+    <td class="tg-031e date">12-31-76</td>
+    <td class="tg-031e dis">456</td>
+    <td class="tg-031e mt">789</td>
+    <td class="tg-031e hr">101</td>
+  </tr>
+</table>
+
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 				<div class="thumbnail">
-					<img src="#" alt="">
 					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>place for another graph</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
+						<h3>Chart</h3>
+						<p>Data for this segment</p>
+                        {% load chart_tags %}
+                        {% chart %}
+                             chxr=0,0,160
+                             chxt=y
+                             chbh=a
+                             chs=400x220
+                             cht=bvs
+                             chco=4D89F9
+                             chds=0,160
+                             chd=t:10,50,60,80,40,60,30
+                             chtt=Horizontal+bar+chart
+                        {% endchart %}
+                    </div>
 				</div>
 			</div>
-			<div class="col-sm-4 col-sm-offset-2">
-				<div class="thumbnail">
-					<img src="#" alt="">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>place for graph</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="thumbnail">
-					<img src="#" alt="">
-					<div class="caption">
-						<h3>Thumbnail label</h3>
-						<p>place for graph</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-					</div>
-				</div>
-			</div>
+
 
 		</div>
 
 	</div>
 </section>
 
-<script type="text/javascript">
+{#<script type="text/javascript">#}
 
-        $('#graph').on('click', function () {
-            $.ajax({
-                url: '/graph/',
-                type: 'GET',
-                success: function (data) {
-                    console.log(data);
-                    $('#putgraphhere').html(data);
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
-        });
-</script>
+{#        $('#graph').on('click', function () {#}
+{#            $.ajax({#}
+{#                url: '/graph/',#}
+{#                type: 'GET',#}
+{#                success: function (data) {#}
+{#                    console.log(data);#}
+{#                    $('#putgraphhere').html(data);#}
+{#                },#}
+{#                error: function(data) {#}
+{#                    console.log(data);#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#</script>#}
+{#<div id="putgraphhere" style="height: 200px; width: 200px;"></div>#}
+
 <!-- Fourth (Contact) section -->
 <section class="section" id="contact">
 	<div class="container">
@@ -183,11 +163,10 @@
 	</div>
 </section>
 
-<!-- Load js libs only when the page is loaded. -->
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src=" {%  static 'js/modernizr.custom.72241.js' %}"></script>
-
 <!-- Custom template scripts -->
 <script src="{% static 'js/magister.js' %}"></script>
 <!-- Graph scripts -->
