@@ -4,20 +4,21 @@
   <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 
 
-  <div id="putgraphhere" style="height: 200px; width: 200px;"></div>
+
+  <div id="area-example"></div>
 
 
 <script>
-    Morris.Area({
-  element: 'graph',
+Morris.Area({
+  element: 'area-example',
   data: [
-    { y: '2006', a: 20, b: 90 },
-    { y: '2007', a: 75,  b: 65 },
-    { y: '2008', a: 50,  b: 40 },
-    { y: '2009', a: 75,  b: 65 },
-    { y: '2010', a: 50,  b: 40 },
-    { y: '2011', a: 75,  b: 65 },
-    { y: '2012', a: 100, b: 90 }
+    { y: 'June 17', a: 100, b: 90 },
+    { y: 'June 18', a: 75,  b: 65 },
+    { y: 'June 19', a: 50,  b: 40 },
+    { y: 'June 20', a: 75,  b: 65 },
+    { y: 'June 21', a: 50,  b: 40 },
+    { y: 'June 22', a: 75,  b: 65 },
+    { y: 'June 23', a: 100, b: 90 }
   ],
   xkey: 'y',
   ykeys: ['a', 'b'],
