@@ -212,7 +212,9 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	background: rgba(255,255,255,.5);
 }
 
-
+.btn .btn-default .btn-lg #seeSegs {
+    color: red;
+}
 
 /********************************************************/
 /*                 UI - Thumbnails                      */

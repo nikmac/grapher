@@ -1,0 +1,25 @@
+
+
+
+{%  for segment in starredSegments %}
+        <form id="getSegmentEffort" method="post" name="segment" action="/segmentEffort/{{ segment.id }}/{{ access_token }}/">
+        <select>
+
+                <option class="segments">{{ segment.name }}</option>
+
+            <input type=submit />
+        </select>
+        </form>
+
+{% endfor %}
+
+<form id="getSegmentEffort" method="post" name="segment" action="/segmentEffort/{{ segment.id }}/{{ access_token }}/">
+
+<select>
+{%  for segment in starredSegments %}
+    <option class="segments">{{ segment.name }}</option>
+{% endfor %}
+</select>
+    <input type=submit />
+
+</form>
