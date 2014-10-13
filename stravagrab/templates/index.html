@@ -67,7 +67,7 @@
                 {%  for segment in starredSegments %}
                          <div>
                              <ul>
-                                 <li><a href="/segmentEffort/{{ segment.id }}/{{ access_token }}">{{ segment.name }}</a></li>
+                                 <li class="theme-invert"><a href="/segmentEffort/{{ segment.id }}/{{ access_token }}">{{ segment.name }}</a></li>
                              </ul>
                          </div>
                {% endfor %}
@@ -86,7 +86,7 @@
             Nice Work {{ first_name }}!!
         </p>
         <div class="row">
-            <div class="col-sm-5 col-sm-offset-1">
+            <div class="col-sm-6">
                 <div class="thumbnail">
                     <div class="caption">
                         <h3>Amazing Data</h3>
@@ -153,7 +153,7 @@
                     <div class="caption">
                         <h3>Fancy Graph</h3>
 
-                        <p>{{ segment.name }}</p>
+                        <p>{{ segmentName }}</p>
                         {% load chart_tags %}
                         {% chart %}
                             chxr=0,1,40

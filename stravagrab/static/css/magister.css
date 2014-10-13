@@ -24,6 +24,12 @@ strong {
     color: white;
 }
 
+li {
+    list-style: none;
+    font-size:1.3em;
+    font-weight: bold;
+}
+
 /********************************************************/
 /*                    Navigation bar                    */
 /********************************************************/
@@ -282,7 +288,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	color:white;
 	color: rgb(0, 0, 0);
  }
-.theme-invert a { 
+.theme-invert li a {
 	color:white;
 }
 .theme-invert p {
@@ -295,7 +301,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	color:#fff;
 }
 .theme-invert .btn-link {
-	color: rgba(0, 0, 0, 0);
+	color: rgb(232, 232, 232);
 }
 .theme-invert .btn-link:hover, .theme-invert .btn-link:focus, .theme-invert .btn-link:active {
 	color:white;
