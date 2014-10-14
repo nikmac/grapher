@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from stravalib import Client
 
+# You have a few syntax inconsistencies in this file where you're using camelCase instead of lowercase and underscores
 
 def index(request):
     authorize_url= authenticate(request)
