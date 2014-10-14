@@ -6,6 +6,8 @@ var section_hide_time = 1300;
 var section_show_time = 1300;
 
 // jQuery stuff
+// You could change your views so that they return JSON instead of calling index.html
+// This way you could make AJAX calls and navigate from section to section without having to reload the page
 jQuery(document).ready(function($) {
 
 	// Switch section
