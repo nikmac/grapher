@@ -18,6 +18,8 @@ def convertDate(dateTimeStamp):
 
 def authenticate(request):
     client = Client()
+    # This is prone to breaking everytime the URL changes, you may want to just get the current request's domain or use Django's sites
+    # http://stackoverflow.com/questions/1451138/how-can-i-get-the-domain-name-of-my-site-within-a-django-template
     authorize_url = client.authorization_url(client_id=3255, redirect_uri='http://boiling-beyond-7936.herokuapp.com/stravaAuth')
     print authorize_url
     # Have the user click the authorization URL, a 'code' param will be added to the redirect_uri
@@ -52,10 +54,15 @@ def selectStarredSegments(request):
     #athleteID = "2775094" #niki
     #stravaBaseURL = "https://www.strava.com/api/v3/athlete/" + athleteID + "/segments/starred"
     # https://www.strava.com/api/v3/athlete/athlete_id=2775094/segments/starred"
+    
+    # Looks like you're often creating a strava url and passing in the access token, then making the request to get the data
+    # You could abstract this out into it's own function so that you're not repeating this code
     stravaBaseURL = "https://www.strava.com/api/v3/segments/starred"
     accessTokenAthlete = "?access_token=" + request.session["access_token"]
     #accessTokenPublic = "?access_token=1419cd6da2e3adea1a813ac12d9aab14d8aa95c7"
     print stravaBaseURL + accessTokenAthlete
+    # should use the "requests" library instead of urllib2, it's much nicer to use!
+    # http://docs.python-requests.org/en/latest/
     response = urllib2.urlopen(stravaBaseURL + accessTokenAthlete)
     print response
     starredSegments = json.load(response)
