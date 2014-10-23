@@ -18,7 +18,7 @@ def convertDate(dateTimeStamp):
 
 def authenticate(request):
     client = Client()
-    authorize_url = client.authorization_url(client_id=3255, redirect_uri='http://boiling-beyond-7936.herokuapp.com/stravaAuth')
+    authorize_url = client.authorization_url(client_id=3255, redirect_uri='http://'+request.META['HTTP_HOST']+'/stravaAuth')
     print authorize_url
     # Have the user click the authorization URL, a 'code' param will be added to the redirect_uri
     #return render_to_response('index.html', locals())
