@@ -41,8 +41,11 @@ def stravaAuth(request):
     is_authenticated = request.session["is_authenticated"]
     print("For {id}, I now have an access token {token}".format(id=athlete.id, token=access_token))
     userDetails =  getProfilePic(request)
+    print "after userdetails"
     user_pic = userDetails["profile"]
+    print "after userpic"
     first_name = userDetails["firstname"]
+    print "after firstname"
     # now we're authenticated, go to this page to allow user to click link to get their starred segments
     # alternatively, why go here? why not just redirect to /selectStarredSegments
     #return render_to_response('stravaAuthenticated.html', locals())
